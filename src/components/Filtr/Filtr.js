@@ -1,12 +1,15 @@
 import React from "react";
 import { nanoid } from 'nanoid'
+import { Filtrs, FiltrsLabel } from "./Filtr.styled";
 
 const inputSearchId = nanoid()
 
 const Filtr = ({ filter, onChange }) => (
-<label htmlFor={inputSearchId}>Search
-<input id={inputSearchId} type="text" value={filter} onChange={onChange} name="search" placeholder="Search" />
-</label>
+
+<FiltrsLabel htmlFor={inputSearchId}>Search
+<Filtrs id={inputSearchId} type="text" value={filter} onChange={onChange} name="search" placeholder="Search" />
+</FiltrsLabel>
+
 )
 
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Filtr from './Filtr/Filtr';
 import InputForm from './InputForm/InputForm';
 import Contact from './Contacts/Contacts';
+import { Section } from './Section/Section.styled';
 
 
 export class App extends Component {
@@ -47,11 +48,11 @@ export class App extends Component {
     );
 
     return (
-      <div>
+      <Section>
         <InputForm onSubmit={this.formSubmitHandler} />
         <Filtr filter={filter} onChange={this.handleChangeSearch} />
         <Contact contacts={visibleContacts} onDeleteContact={this.handleDeleteContact} />
-      </div>
+      </Section>
     );
   }
 }
