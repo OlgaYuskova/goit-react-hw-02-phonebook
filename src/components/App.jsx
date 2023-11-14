@@ -24,8 +24,7 @@ export class App extends Component {
   }
 
   this.setState((prevState) => ({
-    contacts: [...prevState.contacts, data],
-    filter: '',
+    contacts: [...prevState.contacts, data]
   }));
 };
 
@@ -33,9 +32,9 @@ export class App extends Component {
     this.setState({ filter: evt.target.value });
   };
 
-  handleDeleteContact = (name) => {
+  handleDeleteContact = (id) => {
       this.setState((prevState) => ({
-    contacts: prevState.contacts.filter((contact) => contact.name !== name),
+    contacts: prevState.contacts.filter((contact) => contact.id !== id),
   }));
   };
 

@@ -1,19 +1,17 @@
 import { Component } from 'react';
 import { InputForms } from './InputForm.styled';
-
+import { nanoid } from 'nanoid';
 class InputForm extends Component {
   state = {
     name: '',
     number: '',
+    id: '',
   };
 
-  handleChangeName = (evt) => {
-    this.setState({ name: evt.target.value });
-  };
-
-  handleChangeNuber = (evt) => {
-    this.setState({ number: evt.target.value });
-  };
+  handleChangeInputsForm = (evt) => {
+    const currentInput = evt.target.name
+    this.setState({ [currentInput]: evt.target.value })
+  }
 
   handleSubmitContact = (evt) => {
     evt.preventDefault();
@@ -21,9 +19,9 @@ class InputForm extends Component {
     this.props.onSubmit(this.state)
 
        this.setState({
-      name: '',
-         number: '',
-
+        name: '',
+        number: '',
+        id: nanoid(),
     });
   };
 
@@ -37,7 +35,7 @@ class InputForm extends Component {
           id="name"
           type="text"
           value={name}
-          onChange={this.handleChangeName}
+          onChange={this.handleChangeInputsForm}
           name="name"
           placeholder="Name"
         />
@@ -47,9 +45,10 @@ class InputForm extends Component {
           id="number"
           type="tel"
           value={number}
-          onChange={this.handleChangeNuber}
+          onChange={this.handleChangeInputsForm}
           name="number"
           placeholder="123-123-1234"
+          title='Phone number must be digits and dashes. Example: 101-010-1010'
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           required
         />

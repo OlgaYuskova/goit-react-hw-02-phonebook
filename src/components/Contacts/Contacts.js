@@ -4,10 +4,10 @@ import { ContactList, ContactItem } from "./Contacts.styled";
 const Contact = ({ contacts, onDeleteContact }) => (
     <ContactList title='Contacts'>
     {contacts.map((contact) => (
-        <ContactItem key={contact.name}>
+        <ContactItem key={contact.id}>
             <p>{contact.name}</p>
             <p>{contact.number}</p>
-            <button type="button" onClick={() => onDeleteContact(contact.name)}>Delete</button>
+            <button type="button" onClick={() => onDeleteContact(contact.id)}>Delete</button>
         </ContactItem>
         ))}
     </ContactList>
